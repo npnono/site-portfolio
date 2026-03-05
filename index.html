@@ -13,9 +13,10 @@ body{
   color:#00ffcc;
   background:#020617;
   overflow-x:hidden;
+  height:3000px; /* permet de scroller */
 }
 
-/* CANVAS FOND ANIMÉ */
+/* CANVAS FOND ÉTOILÉ */
 #game-bg{
   position:fixed;
   top:0;
@@ -153,27 +154,26 @@ footer{
 // =======================
 const canvas = document.getElementById("game-bg");
 const ctx = canvas.getContext("2d");
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let stars = [];
 for(let i=0;i<150;i++){
   stars.push({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    size:Math.random()*2,
-    speed:Math.random()*0.5
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    size: Math.random()*2,
+    speed: Math.random()*0.5
   });
 }
 
 function animateStars(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="#00ffcc";
-  stars.forEach(star=>{
-    ctx.fillRect(star.x,star.y,star.size,star.size);
+  ctx.fillStyle = "#00ffcc";
+  stars.forEach(star => {
+    ctx.fillRect(star.x, star.y, star.size, star.size);
     star.y += star.speed;
-    if(star.y>canvas.height){
+    if(star.y > canvas.height){
       star.y = 0;
       star.x = Math.random()*canvas.width;
     }
@@ -187,38 +187,32 @@ animateStars();
 // =======================
 const ropeCanvas = document.getElementById("rope-canvas");
 const rctx = ropeCanvas.getContext("2d");
-
 ropeCanvas.width = window.innerWidth;
 ropeCanvas.height = window.innerHeight;
 
-let playerY = 100;
-let targetY = 100;
-let stepAnim = 0;
+let playerY = 150;
+let targetY = 150;
 
-window.addEventListener("scroll", () => {
-  targetY = window.scrollY * 0.5 + 100;
+// Scroll
+window.addEventListener("scroll", ()=>{
+  targetY = 150 + window.scrollY * 0.5;
 });
 
-// Fonction pour dessiner un personnage pixel animé
-function drawPlayer(x,y){
+// Dessiner le personnage pixel
+function drawPlayer(x, y){
   const p = 6;
-  
-  // Couleur
   rctx.fillStyle="#ff00ff";
-  
-  // Tête
-  rctx.fillRect(x,y,p*3,p*3);
-  
-  // Corps
-  rctx.fillRect(x+p,y+p*3,p,p*3);
-  
-  // Bras animés légèrement
-  rctx.fillRect(x-p,y+p*3 + Math.sin(stepAnim)*2,p,p);
-  rctx.fillRect(x+p*2,y+p*3 - Math.sin(stepAnim)*2,p,p);
-  
-  // Jambes animées légèrement
-  rctx.fillRect(x,y+p*6 + Math.sin(stepAnim)*2,p,p*2);
-  rctx.fillRect(x+p*2,y+p*6 - Math.sin(stepAnim)*2,p,p*2);
+
+  // tête
+  rctx.fillRect(x, y, p*3, p*3);
+  // corps
+  rctx.fillRect(x+p, y+p*3, p, p*3);
+  // bras
+  rctx.fillRect(x-p, y+p*3, p, p);
+  rctx.fillRect(x+p*2, y+p*3, p, p);
+  // jambes
+  rctx.fillRect(x, y+p*6, p, p*2);
+  rctx.fillRect(x+p*2, y+p*6, p, p*2);
 }
 
 // Animation corde + personnage
@@ -226,31 +220,27 @@ function animateRope(){
   rctx.clearRect(0,0,ropeCanvas.width,ropeCanvas.height);
   
   // interpolation douce
-  playerY += (targetY - playerY) * 0.1;
-  
-  const ropeX = ropeCanvas.width/2;
-  
-  // corde avec oscillation
-  rctx.strokeStyle="#00ffcc";
-  rctx.lineWidth=4;
+  playerY += (targetY - playerY) * 0.2;
+
+  const ropeX = ropeCanvas.width / 2;
+
+  // corde
+  rctx.strokeStyle = "#00ffcc";
+  rctx.lineWidth = 4;
   rctx.beginPath();
-  rctx.moveTo(ropeX + Math.sin(stepAnim/2)*2,0);
-  rctx.lineTo(ropeX + Math.sin(stepAnim/2)*2,playerY);
+  rctx.moveTo(ropeX, 0);
+  rctx.lineTo(ropeX, playerY);
   rctx.stroke();
-  
+
   // personnage
-  drawPlayer(ropeX-10,playerY);
-  
-  stepAnim += 0.1;
-  
+  drawPlayer(ropeX-10, playerY);
+
   requestAnimationFrame(animateRope);
 }
 animateRope();
 
-// =======================
-// Ajustement sur redimension
-// =======================
-window.addEventListener('resize', ()=>{
+// Redimensionnement
+window.addEventListener("resize", ()=>{
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   ropeCanvas.width = window.innerWidth;
