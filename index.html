@@ -9,88 +9,100 @@
 <style>
 
 body{
-margin:0;
-font-family:'Press Start 2P', cursive;
-color:#00ffcc;
-background:#020617;
-overflow-x:hidden;
+  margin:0;
+  font-family:'Press Start 2P', cursive;
+  color:#00ffcc;
+  background:#020617;
+  overflow-x:hidden;
 }
 
 /* CANVAS FOND ANIMÉ */
 
 #game-bg{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+/* CANVAS CORDÉE PERSONNAGE */
+
+#rope-canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:2;
 }
 
 /* HEADER */
 
 header{
-text-align:center;
-padding:40px;
-border-bottom:4px solid #00ffcc;
-background:rgba(0,0,0,0.6);
+  text-align:center;
+  padding:40px;
+  border-bottom:4px solid #00ffcc;
+  background:rgba(0,0,0,0.6);
 }
 
 h1{
-text-shadow:4px 4px #ff00ff;
+  text-shadow:4px 4px #ff00ff;
 }
 
 /* MENU */
 
 nav a{
-color:#00ffcc;
-text-decoration:none;
-margin:10px;
-padding:10px 15px;
-border:3px solid #00ffcc;
-display:inline-block;
+  color:#00ffcc;
+  text-decoration:none;
+  margin:10px;
+  padding:10px 15px;
+  border:3px solid #00ffcc;
+  display:inline-block;
 }
 
 nav a:hover{
-background:#00ffcc;
-color:#020617;
-transform:scale(1.1);
+  background:#00ffcc;
+  color:#020617;
+  transform:scale(1.1);
 }
 
 /* SECTIONS */
 
 section{
-padding:60px 20px;
-text-align:center;
+  padding:60px 20px;
+  text-align:center;
 }
 
 .projets{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
 }
 
 .carte{
-background:#020617;
-border:3px solid #00ffcc;
-padding:20px;
-width:220px;
-box-shadow:6px 6px #ff00ff;
-transition:0.3s;
+  background:#020617;
+  border:3px solid #00ffcc;
+  padding:20px;
+  width:220px;
+  box-shadow:6px 6px #ff00ff;
+  transition:0.3s;
 }
 
 .carte:hover{
-transform:translateY(-10px);
+  transform:translateY(-10px);
 }
 
 /* FOOTER */
 
 footer{
-text-align:center;
-padding:30px;
-border-top:4px solid #00ffcc;
-background:rgba(0,0,0,0.6);
+  text-align:center;
+  padding:30px;
+  border-top:4px solid #00ffcc;
+  background:rgba(0,0,0,0.6);
 }
 
 </style>
@@ -99,6 +111,7 @@ background:rgba(0,0,0,0.6);
 <body>
 
 <canvas id="game-bg"></canvas>
+<canvas id="rope-canvas"></canvas>
 
 <header>
 <h1>TON NOM</h1>
@@ -117,28 +130,21 @@ background:rgba(0,0,0,0.6);
 </section>
 
 <section id="projects">
-
 <h2>MISSIONS</h2>
-
 <div class="projets">
-
-<div class="carte">
-<h3>Projet 1</h3>
-<p>Site pixel.</p>
+  <div class="carte">
+    <h3>Projet 1</h3>
+    <p>Site pixel.</p>
+  </div>
+  <div class="carte">
+    <h3>Projet 2</h3>
+    <p>Mini jeu.</p>
+  </div>
+  <div class="carte">
+    <h3>Projet 3</h3>
+    <p>Application web.</p>
+  </div>
 </div>
-
-<div class="carte">
-<h3>Projet 2</h3>
-<p>Mini jeu.</p>
-</div>
-
-<div class="carte">
-<h3>Projet 3</h3>
-<p>Application web.</p>
-</div>
-
-</div>
-
 </section>
 
 <section id="contact">
@@ -151,7 +157,9 @@ background:rgba(0,0,0,0.6);
 </footer>
 
 <script>
-
+// =======================
+// FOND ÉTOILÉ
+// =======================
 const canvas = document.getElementById("game-bg");
 const ctx = canvas.getContext("2d");
 
@@ -161,39 +169,95 @@ canvas.height = window.innerHeight;
 let stars = [];
 
 for(let i=0;i<150;i++){
-stars.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-size:Math.random()*2,
-speed:Math.random()*0.5
+  stars.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    size:Math.random()*2,
+    speed:Math.random()*0.5
+  });
+}
+
+function animateStars(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#00ffcc";
+  stars.forEach(star=>{
+    ctx.fillRect(star.x,star.y,star.size,star.size);
+    star.y += star.speed;
+    if(star.y>canvas.height){
+      star.y = 0;
+      star.x = Math.random()*canvas.width;
+    }
+  });
+  requestAnimationFrame(animateStars);
+}
+animateStars();
+
+// =======================
+// PERSONNAGE PIXEL SUR CORDÉE
+// =======================
+const ropeCanvas = document.getElementById("rope-canvas");
+const rctx = ropeCanvas.getContext("2d");
+
+ropeCanvas.width = window.innerWidth;
+ropeCanvas.height = window.innerHeight;
+
+let playerY = 100;
+let targetY = 100;
+
+window.addEventListener("scroll", () => {
+  targetY = window.scrollY * 0.5 + 100; // ajuste la vitesse ici
 });
+
+// Fonction pour dessiner un personnage pixel
+function drawPlayer(x,y){
+  const p = 6; // taille pixel
+  rctx.fillStyle="#ff00ff";
+  
+  // tête
+  rctx.fillRect(x,y,p*3,p*3);
+  // corps
+  rctx.fillRect(x+p,y+p*3,p,p*3);
+  // bras
+  rctx.fillRect(x-p,y+p*3,p,p);
+  rctx.fillRect(x+p*2,y+p*3,p,p);
+  // jambes
+  rctx.fillRect(x,y+p*6,p,p*2);
+  rctx.fillRect(x+p*2,y+p*6,p,p*2);
 }
 
-function animate(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="#00ffcc";
-
-stars.forEach(star=>{
-
-ctx.fillRect(star.x,star.y,star.size,star.size);
-
-star.y += star.speed;
-
-if(star.y>canvas.height){
-star.y = 0;
-star.x = Math.random()*canvas.width;
+// Animation corde + personnage
+function animateRope(){
+  rctx.clearRect(0,0,ropeCanvas.width,ropeCanvas.height);
+  
+  // interpolation douce
+  playerY += (targetY - playerY) * 0.1;
+  
+  const ropeX = ropeCanvas.width/2;
+  
+  // corde
+  rctx.strokeStyle="#00ffcc";
+  rctx.lineWidth=4;
+  rctx.beginPath();
+  rctx.moveTo(ropeX,0);
+  rctx.lineTo(ropeX,playerY);
+  rctx.stroke();
+  
+  // personnage
+  drawPlayer(ropeX-10,playerY);
+  
+  requestAnimationFrame(animateRope);
 }
+animateRope();
 
+// =======================
+// Ajustement sur redimension
+// =======================
+window.addEventListener('resize', ()=>{
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  ropeCanvas.width = window.innerWidth;
+  ropeCanvas.height = window.innerHeight;
 });
-
-requestAnimationFrame(animate);
-
-}
-
-animate();
-
 </script>
 
 </body>
