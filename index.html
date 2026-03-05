@@ -13,7 +13,6 @@ body{
   color:#00ffcc;
   background:#020617;
   overflow-x:hidden;
-  height:3000px; /* permet de scroller */
 }
 
 /* CANVAS FOND ÉTOILÉ */
@@ -23,10 +22,10 @@ body{
   left:0;
   width:100%;
   height:100%;
-  z-index:-1;
+  z-index:-2; /* derrière tout */
 }
 
-/* CANVAS CORDÉE PERSONNAGE */
+/* CANVAS CORDE */
 #rope-canvas{
   position:fixed;
   top:0;
@@ -34,7 +33,7 @@ body{
   width:100%;
   height:100%;
   pointer-events:none;
-  z-index:2;
+  z-index:0; /* devant les étoiles, derrière le texte */
 }
 
 /* HEADER */
@@ -158,7 +157,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let stars = [];
-for(let i=0;i<150;i++){
+for(let i=0; i<150; i++){
   stars.push({
     x: Math.random()*canvas.width,
     y: Math.random()*canvas.height,
@@ -170,7 +169,7 @@ for(let i=0;i<150;i++){
 function animateStars(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   ctx.fillStyle = "#00ffcc";
-  stars.forEach(star => {
+  stars.forEach(star=>{
     ctx.fillRect(star.x, star.y, star.size, star.size);
     star.y += star.speed;
     if(star.y > canvas.height){
@@ -183,63 +182,31 @@ function animateStars(){
 animateStars();
 
 // =======================
-// PERSONNAGE PIXEL SUR CORDÉE
+// CANVAS CORDE
 // =======================
 const ropeCanvas = document.getElementById("rope-canvas");
 const rctx = ropeCanvas.getContext("2d");
 ropeCanvas.width = window.innerWidth;
 ropeCanvas.height = window.innerHeight;
 
-let playerY = 150;
-let targetY = 150;
-
-// Scroll
-window.addEventListener("scroll", ()=>{
-  targetY = 150 + window.scrollY * 0.5;
-});
-
-// Dessiner le personnage pixel
-function drawPlayer(x, y){
-  const p = 6;
-  rctx.fillStyle="#ff00ff";
-
-  // tête
-  rctx.fillRect(x, y, p*3, p*3);
-  // corps
-  rctx.fillRect(x+p, y+p*3, p, p*3);
-  // bras
-  rctx.fillRect(x-p, y+p*3, p, p);
-  rctx.fillRect(x+p*2, y+p*3, p, p);
-  // jambes
-  rctx.fillRect(x, y+p*6, p, p*2);
-  rctx.fillRect(x+p*2, y+p*6, p, p*2);
-}
-
-// Animation corde + personnage
-function animateRope(){
+function drawRope(){
   rctx.clearRect(0,0,ropeCanvas.width,ropeCanvas.height);
-  
-  // interpolation douce
-  playerY += (targetY - playerY) * 0.2;
-
-  const ropeX = ropeCanvas.width / 2;
-
-  // corde
   rctx.strokeStyle = "#00ffcc";
   rctx.lineWidth = 4;
+
+  const x = ropeCanvas.width/2; // corde au milieu
   rctx.beginPath();
-  rctx.moveTo(ropeX, 0);
-  rctx.lineTo(ropeX, playerY);
+  rctx.moveTo(x,0);
+  rctx.lineTo(x,ropeCanvas.height); // corde verticale jusqu'en bas
   rctx.stroke();
 
-  // personnage
-  drawPlayer(ropeX-10, playerY);
-
-  requestAnimationFrame(animateRope);
+  requestAnimationFrame(drawRope);
 }
-animateRope();
+drawRope();
 
+// =======================
 // Redimensionnement
+// =======================
 window.addEventListener("resize", ()=>{
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
