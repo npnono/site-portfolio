@@ -8,13 +8,8 @@
 
 /* BODY */
 body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-
   background: url("the_wandering_village.jpg") no-repeat center center fixed;
   background-size: cover;
-
   color: #0f0f1a;
   padding-top: 70px;
 }
@@ -100,7 +95,7 @@ h2 {
   padding-left: 10px;
 }
 
-/* 🔥 PROJETS EN LIGNE */
+/* PROJETS */
 .projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -148,9 +143,8 @@ h2 {
   margin: auto;
 }
 
-/* FOOTER */
+/* FOOTER NORMAL */
 footer {
-  margin-top: auto;
   width: 100%;
   padding: 15px;
 
@@ -159,6 +153,8 @@ footer {
 
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
+
+  margin-top: 60px;
 }
 
 .footer-text {
