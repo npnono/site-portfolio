@@ -1,60 +1,232 @@
-/* ANIMATIONS & COULEURS */
-body{
-  background: radial-gradient(circle at top, #020617, #000);
+/* ════════════════════════════════════════
+   NOLAN PESTRE — PORTFOLIO SCRIPT
+   Animations · Canvas · Scroll FX
+════════════════════════════════════════ */
+
+/* ──────────────────────────────────────
+   1. CANVAS — FOND ÉTOILÉ + PARTICULES
+────────────────────────────────────── */
+const canvas = document.getElementById("game-bg");
+const ctx    = canvas.getContext("2d");
+
+function resize() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+// Étoiles
+const STAR_COUNT = 180;
+const stars = Array.from({ length: STAR_COUNT }, () => ({
+  x:     Math.random() * canvas.width,
+  y:     Math.random() * canvas.height,
+  size:  Math.random() * 1.5 + 0.3,
+  speed: Math.random() * 0.4 + 0.1,
+  alpha: Math.random() * 0.6 + 0.3
+}));
+
+// Particules cyan flottantes
+const PARTICLE_COUNT = 30;
+const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+  x:    Math.random() * canvas.width,
+  y:    Math.random() * canvas.height,
+  vx:   (Math.random() - 0.5) * 0.4,
+  vy:   (Math.random() - 0.5) * 0.4,
+  size: Math.random() * 2 + 1,
+  alpha: Math.random() * 0.3 + 0.05
+}));
+
+function drawStars() {
+  stars.forEach(s => {
+    ctx.globalAlpha = s.alpha;
+    ctx.fillStyle   = "#00f5d4";
+    ctx.fillRect(s.x, s.y, s.size, s.size);
+
+    // Défilement vertical
+    s.y += s.speed;
+    if (s.y > canvas.height) {
+      s.y    = 0;
+      s.x    = Math.random() * canvas.width;
+      s.alpha = Math.random() * 0.6 + 0.3;
+    }
+  });
 }
 
-h1, h2, h3{
-  text-shadow: 3px 3px #ff00ff;
+function drawParticles() {
+  particles.forEach(p => {
+    ctx.globalAlpha = p.alpha;
+    ctx.fillStyle   = "#f72585";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x < 0) p.x = canvas.width;
+    if (p.x > canvas.width)  p.x = 0;
+    if (p.y < 0) p.y = canvas.height;
+    if (p.y > canvas.height) p.y = 0;
+  });
 }
 
-.hero h1{
-  animation: glow 2s infinite alternate;
+// Grille perspective légère
+function drawGrid() {
+  ctx.globalAlpha = 0.04;
+  ctx.strokeStyle = "#00f5d4";
+  ctx.lineWidth   = 0.5;
+
+  const cols = 24;
+  const gap  = canvas.width / cols;
+
+  for (let i = 0; i <= cols; i++) {
+    ctx.beginPath();
+    ctx.moveTo(i * gap, 0);
+    ctx.lineTo(i * gap, canvas.height);
+    ctx.stroke();
+  }
 }
 
-@keyframes glow{
-  from{ text-shadow: 0 0 5px #00ffcc; }
-  to{ text-shadow: 0 0 20px #ff00ff; }
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawGrid();
+  drawStars();
+  drawParticles();
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(animate);
 }
 
-/* HOVER */
-.skill, .project, .timeline-item{
-  transition: all 0.3s ease;
+animate();
+
+/* ──────────────────────────────────────
+   2. SCROLL — APPARITION TIMELINE
+────────────────────────────────────── */
+const timelineEvents = document.querySelectorAll(".t-event");
+
+function revealOnScroll() {
+  const windowBottom = window.scrollY + window.innerHeight;
+
+  timelineEvents.forEach(el => {
+    const elTop = el.getBoundingClientRect().top + window.scrollY;
+    if (windowBottom > elTop + 60) {
+      el.classList.add("visible");
+    }
+  });
 }
 
-.skill:hover{
-  background:#00ffcc;
-  color:#020617;
-  transform: scale(1.1);
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll(); // Au chargement
+
+/* ──────────────────────────────────────
+   3. NAV — HIGHLIGHT SECTION ACTIVE
+────────────────────────────────────── */
+const sections = document.querySelectorAll("section[id]");
+const navLinks  = document.querySelectorAll(".nav-links a");
+
+function updateActiveNav() {
+  const scrollY = window.scrollY + 120;
+
+  sections.forEach(section => {
+    const top    = section.offsetTop;
+    const height = section.offsetHeight;
+    const id     = section.getAttribute("id");
+
+    if (scrollY >= top && scrollY < top + height) {
+      navLinks.forEach(a => {
+        a.style.color = "";
+        a.style.textShadow = "";
+      });
+      const active = document.querySelector(`.nav-links a[href="#${id}"]`);
+      if (active) {
+        active.style.color      = "var(--cyan)";
+        active.style.textShadow = "0 0 8px var(--cyan)";
+      }
+    }
+  });
 }
 
-.project:hover{
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 0 20px #00ffcc;
+window.addEventListener("scroll", updateActiveNav);
+
+/* ──────────────────────────────────────
+   4. EFFET GLITCH SUR LE TITRE HERO
+────────────────────────────────────── */
+const heroName = document.querySelector(".hero-name");
+
+function glitchEffect() {
+  if (!heroName) return;
+
+  heroName.style.transform = `translate(${(Math.random() - 0.5) * 4}px, ${(Math.random() - 0.5) * 2}px)`;
+  heroName.style.filter    = `hue-rotate(${Math.random() * 30}deg)`;
+
+  setTimeout(() => {
+    heroName.style.transform = "";
+    heroName.style.filter    = "";
+  }, 80);
 }
 
-.timeline-item:hover{
-  transform: translateX(10px);
+// Glitch aléatoire toutes les 4 à 8 secondes
+function scheduleGlitch() {
+  const delay = 4000 + Math.random() * 4000;
+  setTimeout(() => {
+    glitchEffect();
+    scheduleGlitch();
+  }, delay);
 }
 
-/* LIENS */
-a{
-  color:#00ffcc;
-  text-decoration:none;
-  border-bottom:2px solid transparent;
+scheduleGlitch();
+
+/* ──────────────────────────────────────
+   5. HERO TAG — EFFET TYPEWRITER
+────────────────────────────────────── */
+const heroTag    = document.querySelector(".hero-tag");
+const heroText   = "> INITIALISATION DU PROFIL...";
+let   charIndex  = 0;
+
+if (heroTag) {
+  heroTag.textContent = "";
+
+  function typeWriter() {
+    if (charIndex < heroText.length) {
+      heroTag.textContent += heroText[charIndex];
+      charIndex++;
+      setTimeout(typeWriter, 60);
+    }
+  }
+
+  setTimeout(typeWriter, 400);
 }
 
-a:hover{
-  border-bottom:2px solid #ff00ff;
-}
+/* ──────────────────────────────────────
+   6. CURSOR PIXEL PERSONNALISÉ
+────────────────────────────────────── */
+const dot = document.createElement("div");
+dot.style.cssText = `
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #00f5d4;
+  box-shadow: 0 0 8px #00f5d4;
+  pointer-events: none;
+  z-index: 99999;
+  transition: opacity 0.3s;
+  image-rendering: pixelated;
+`;
+document.body.appendChild(dot);
 
-/* PLACEHOLDER */
-.placeholder{
-  background:rgba(0,255,204,0.1);
-  animation: pulse 2s infinite;
-}
+document.addEventListener("mousemove", e => {
+  dot.style.left = (e.clientX - 3) + "px";
+  dot.style.top  = (e.clientY - 3) + "px";
+});
 
-@keyframes pulse{
-  0%{opacity:0.5}
-  50%{opacity:1}
-  100%{opacity:0.5}
-}
+document.addEventListener("mousedown", () => {
+  dot.style.transform  = "scale(2)";
+  dot.style.background = "#f72585";
+  dot.style.boxShadow  = "0 0 12px #f72585";
+});
+
+document.addEventListener("mouseup", () => {
+  dot.style.transform  = "";
+  dot.style.background = "#00f5d4";
+  dot.style.boxShadow  = "0 0 8px #00f5d4";
+});
