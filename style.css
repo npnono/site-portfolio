@@ -1,7 +1,14 @@
 * {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: #6c63ff;
+  filter: blur(120px);
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 header h1 {
@@ -10,7 +17,7 @@ header h1 {
 
 header p {
   margin-top: 10px;
-  color: #aaa;
+  color: #333;
 }
 
 .btn {
@@ -22,12 +29,12 @@ header p {
   cursor: pointer;
   border-radius: 8px;
   transition: 0.3s;
-  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
 }
 
 .btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(108, 99, 255, 0.8);
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.5);
 }
 
 section {
@@ -49,10 +56,10 @@ h2 {
 }
 
 .skill {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f2f2f2;
   padding: 10px 15px;
   border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid #ddd;
 }
 
 .projects {
@@ -62,14 +69,16 @@ h2 {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f9f9f9;
   padding: 20px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
 footer {
   text-align: center;
   padding: 20px;
-  background: #0a0a12;
+  background: #eaeaea;
+  margin-top: 40px;
 }
