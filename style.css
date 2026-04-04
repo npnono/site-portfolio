@@ -39,6 +39,22 @@ footer {
   z-index: 1;
 }
 
+/* MESSAGE TEST BACKGROUND */
+.bg-test {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+
+  z-index: 999;
+}
+
 /* HEADER */
 header {
   height: 100vh;
@@ -119,7 +135,7 @@ h2 {
   font-size: 14px;
 }
 
-/* LINK */
+/* PROJECT LINK */
 .project-link {
   display: inline-block;
   margin-top: 10px;
