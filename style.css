@@ -6,7 +6,7 @@
   font-family: Arial, sans-serif;
 }
 
-/* BODY + BACKGROUND */
+/* BODY */
 body {
   min-height: 100vh;
   display: flex;
@@ -35,7 +35,6 @@ body {
   z-index: 1000;
 }
 
-/* NAV LINKS */
 .nav-links {
   display: flex;
   list-style: none;
@@ -58,27 +57,22 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
-/* HERO */
 .hero-content {
+  text-align: center;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(6px);
   padding: 30px;
   border-radius: 12px;
 }
 
-/* PROFILE PIC */
+/* PHOTO */
 .profile-pic {
   width: 120px;
   height: 120px;
-  object-fit: cover;
-
   border-radius: 50%;
   margin-bottom: 15px;
-
-  border: 3px solid white;
 }
 
 /* BUTTON */
@@ -106,10 +100,10 @@ h2 {
   padding-left: 10px;
 }
 
-/* PROJECTS */
+/* 🔥 PROJETS EN LIGNE */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -119,6 +113,7 @@ h2 {
   padding: 20px;
   border-radius: 10px;
   border: 1px solid #ddd;
+  text-align: center;
 }
 
 /* VIDEO */
@@ -151,10 +146,9 @@ h2 {
 #profil .card {
   max-width: 600px;
   margin: auto;
-  text-align: center;
 }
 
-/* FOOTER NORMAL EN BAS */
+/* FOOTER */
 footer {
   margin-top: auto;
   width: 100%;
@@ -169,5 +163,4 @@ footer {
 
 .footer-text {
   font-size: 14px;
-  font-weight: 500;
 }
