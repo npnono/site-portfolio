@@ -6,10 +6,13 @@
   font-family: Arial, sans-serif;
 }
 
-/* BACKGROUND */
+/* BODY + BACKGROUND */
 body {
-  background: url("the_wandering_village.jpg") no-repeat center center fixed;
+  background-image: url("the_wandering_village.jpg");
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
   color: #0f0f1a;
   padding-top: 70px;
 }
@@ -19,11 +22,10 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 15px 40px;
+  padding: 15px;
 
   display: flex;
   justify-content: center;
-  align-items: center;
 
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
@@ -42,7 +44,6 @@ body {
   text-decoration: none;
   color: black;
   font-weight: 500;
-  transition: 0.2s;
 }
 
 .nav-links a:hover {
@@ -61,12 +62,11 @@ header {
 /* HERO */
 .hero-content {
   background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(6px);
-  padding: 30px 40px;
+  padding: 30px;
   border-radius: 12px;
 }
 
-/* PROFILE PIC */
+/* PHOTO PROFIL */
 .profile-pic {
   width: 120px;
   height: 120px;
@@ -76,7 +76,6 @@ header {
   margin-bottom: 15px;
 
   border: 3px solid white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* BUTTON */
@@ -84,20 +83,15 @@ header {
   margin-top: 20px;
   padding: 12px 25px;
   border: none;
-  background: linear-gradient(45deg, #6c63ff, #8f87ff);
+  background: #6c63ff;
   color: white;
-  cursor: pointer;
   border-radius: 8px;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.05);
+  cursor: pointer;
 }
 
 /* SECTIONS */
 section {
-  padding: 80px 20px;
+  padding: 60px 20px;
   max-width: 1000px;
   margin: auto;
 }
@@ -120,26 +114,20 @@ h2 {
 .card {
   background: rgba(255, 255, 255, 0.85);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid #ddd;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
 }
 
 /* VIDEO */
 .video-placeholder {
   width: 100%;
-  height: 180px;
+  height: 150px;
   background: #ddd;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 15px;
-  color: #555;
+  margin-bottom: 10px;
 }
 
 /* SKILLS */
@@ -151,14 +139,9 @@ h2 {
 
 .skill {
   background: rgba(255, 255, 255, 0.8);
-  padding: 10px 15px;
+  padding: 10px;
   border-radius: 6px;
   border: 1px solid #ddd;
-  transition: 0.2s;
-}
-
-.skill:hover {
-  transform: scale(1.05);
 }
 
 /* PROFIL */
@@ -166,26 +149,22 @@ h2 {
   max-width: 600px;
   margin: auto;
   text-align: center;
-  font-size: 18px;
-  line-height: 1.8;
 }
 
-/* FOOTER STYLE COMME NAVBAR */
+/* FOOTER */
 footer {
   width: 100%;
-  padding: 15px 0;
+  padding: 15px;
 
   display: flex;
   justify-content: center;
-  align-items: center;
 
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
 
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .footer-text {
   font-size: 14px;
-  font-weight: 500;
 }
