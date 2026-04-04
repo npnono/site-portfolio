@@ -6,10 +6,9 @@
 }
 
 body {
-  background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
-  color: #ffffff;
+  background: #ffffff;
+  color: #0f0f1a;
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 header {
@@ -19,7 +18,7 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(180deg, #0f0f1a, #1a1a2e);
+  background: linear-gradient(180deg, #ffffff, #eaeaea);
   position: relative;
 }
 
@@ -33,7 +32,7 @@ header::after {
   top: 20%;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 header h1 {
@@ -42,7 +41,7 @@ header h1 {
 
 header p {
   margin-top: 10px;
-  color: #aaa;
+  color: #333;
 }
 
 .btn {
@@ -54,12 +53,10 @@ header p {
   cursor: pointer;
   border-radius: 8px;
   transition: 0.3s;
-  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
 }
 
 .btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(108, 99, 255, 0.8);
 }
 
 section {
@@ -81,10 +78,10 @@ h2 {
 }
 
 .skill {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f2f2f2;
   padding: 10px 15px;
   border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid #ddd;
 }
 
 .projects {
@@ -94,14 +91,14 @@ h2 {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f9f9f9;
   padding: 20px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid #ddd;
 }
 
 footer {
   text-align: center;
   padding: 20px;
-  background: #0a0a12;
+  background: #eaeaea;
 }
