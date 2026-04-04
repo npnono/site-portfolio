@@ -170,17 +170,22 @@ h2 {
   line-height: 1.8;
 }
 
-/* FOOTER */
+/* FOOTER STYLE COMME NAVBAR */
 footer {
-  margin-top: 60px;
-  padding: 20px;
-  text-align: center;
+  width: 100%;
+  padding: 15px 0;
 
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+
+  margin-top: 60px;
 }
 
 .footer-text {
   font-size: 14px;
-  opacity: 0.8;
+  font-weight: 500;
 }
