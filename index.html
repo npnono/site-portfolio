@@ -10,14 +10,26 @@
 
 <body>
 
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Nolan Pestre</div>
+
+    <ul class="nav-links">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#loisirs">Loisirs</a></li>
+    </ul>
+  </nav>
+
   <!-- HEADER -->
   <header>
-    <h1>Nolan Pestre</h1>
-    <p>Game Developer Student 🎮</p>
+    <div class="hero-content">
+      <h1>Nolan Pestre</h1>
+      <p>Game Developer Student 🎮</p>
 
-    <button class="btn" onclick="scrollToSection('projects')">
-      Voir mes projets
-    </button>
+      <button class="btn">Voir mes projets</button>
+    </div>
   </header>
 
   <!-- PROJETS -->
@@ -25,62 +37,48 @@
     <h2>Projets</h2>
 
     <div class="projects">
-
       <div class="card">
         <div class="video-placeholder">Vidéo du projet ici</div>
         <h3>FPS Prototype</h3>
         <p>Prototype de jeu FPS développé sous Unreal Engine 5.</p>
-        <a href="#" class="project-link">Accéder au projet</a>
       </div>
 
       <div class="card">
         <div class="video-placeholder">Vidéo du projet ici</div>
         <h3>Jeu 2D</h3>
         <p>Jeu 2D réalisé avec Unity.</p>
-        <a href="#" class="project-link">Accéder au projet</a>
       </div>
 
       <div class="card">
         <div class="video-placeholder">Vidéo du projet ici</div>
         <h3>AI Demo</h3>
         <p>IA avec comportement de poursuite.</p>
-        <a href="#" class="project-link">Accéder au projet</a>
       </div>
-
     </div>
   </section>
 
   <!-- COMPETENCES -->
-  <section>
-    <h2>Compétences techniques</h2>
+  <section id="skills">
+    <h2>Compétences</h2>
 
     <div class="skills">
       <div class="skill">C#</div>
       <div class="skill">C++</div>
       <div class="skill">Unity</div>
       <div class="skill">Unreal Engine</div>
-      <div class="skill">Python</div>
     </div>
   </section>
 
   <!-- LOISIRS -->
-  <section>
+  <section id="loisirs">
     <h2>Loisirs</h2>
 
     <div class="skills">
-      <div class="skill">Sports collectifs</div>
-      <div class="skill">Musculation</div>
-      <div class="skill">Pêche</div>
-      <div class="skill">Lecture de mangas</div>
       <div class="skill">Jeux vidéo</div>
-      <div class="skill">Escalade</div>
+      <div class="skill">Sport</div>
+      <div class="skill">Lecture</div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2026 - Nolan Pestre</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
