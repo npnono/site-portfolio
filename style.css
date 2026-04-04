@@ -1,4 +1,3 @@
-
 /* RESET */
 * {
   margin: 0;
@@ -12,7 +11,7 @@ body {
   background: url("the_wandering_village.jpg") no-repeat center center fixed;
   background-size: cover;
   color: #0f0f1a;
-  padding-top: 70px; /* espace navbar */
+  padding-top: 70px;
 }
 
 /* NAVBAR */
@@ -33,10 +32,12 @@ body {
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.8;
 }
 
+/* NAV LINKS */
 .nav-links {
   display: flex;
   list-style: none;
@@ -71,7 +72,7 @@ header {
   border-radius: 12px;
 }
 
-/* PHOTO PROFIL */
+/* PROFILE PIC */
 .profile-pic {
   width: 120px;
   height: 120px;
@@ -107,7 +108,7 @@ section {
   margin: auto;
 }
 
-/* TITRES */
+/* TITLES */
 h2 {
   margin-bottom: 20px;
   border-left: 4px solid #6c63ff;
@@ -121,7 +122,7 @@ h2 {
   gap: 20px;
 }
 
-/* CARD */
+/* CARDS */
 .card {
   background: rgba(255, 255, 255, 0.85);
   padding: 20px;
@@ -173,11 +174,4 @@ h2 {
   text-align: center;
   font-size: 18px;
   line-height: 1.8;
-}
-
-/* FOOTER (si tu en ajoutes un plus tard) */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.4);
 }
