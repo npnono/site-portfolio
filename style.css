@@ -1,79 +1,60 @@
-.hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+/* ANIMATIONS & COULEURS */
+body{
+  background: radial-gradient(circle at top, #020617, #000);
 }
 
-.about-container{
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  flex-wrap:wrap;
+h1, h2, h3{
+  text-shadow: 3px 3px #ff00ff;
 }
 
-.about-img .placeholder{
-  width:200px;
-  height:200px;
-  border:3px solid #00ffcc;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.hero h1{
+  animation: glow 2s infinite alternate;
 }
 
-/* TIMELINE */
-.timeline{
-  padding:80px;
+@keyframes glow{
+  from{ text-shadow: 0 0 5px #00ffcc; }
+  to{ text-shadow: 0 0 20px #ff00ff; }
 }
 
-.timeline-item{
-  display:flex;
-  margin:40px 0;
+/* HOVER */
+.skill, .project, .timeline-item{
+  transition: all 0.3s ease;
 }
 
-.timeline-item .left{
-  width:100px;
-  color:#ff00ff;
+.skill:hover{
+  background:#00ffcc;
+  color:#020617;
+  transform: scale(1.1);
 }
 
-.timeline-item .right{
-  border-left:3px solid #00ffcc;
-  padding-left:20px;
+.project:hover{
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 20px #00ffcc;
 }
 
-/* SKILLS */
-.skills-container{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
+.timeline-item:hover{
+  transform: translateX(10px);
 }
 
-.skill{
-  border:3px solid #00ffcc;
-  padding:15px;
+/* LIENS */
+a{
+  color:#00ffcc;
+  text-decoration:none;
+  border-bottom:2px solid transparent;
 }
 
-/* PROJETS */
-.project{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:60px;
-  gap:40px;
+a:hover{
+  border-bottom:2px solid #ff00ff;
 }
 
-.project.reverse{
-  flex-direction:row-reverse;
+/* PLACEHOLDER */
+.placeholder{
+  background:rgba(0,255,204,0.1);
+  animation: pulse 2s infinite;
 }
 
-.project-media .placeholder{
-  width:300px;
-  height:200px;
-  border:3px solid #00ffcc;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+@keyframes pulse{
+  0%{opacity:0.5}
+  50%{opacity:1}
+  100%{opacity:0.5}
 }
