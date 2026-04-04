@@ -5,46 +5,75 @@
   font-family: Arial, sans-serif;
 }
 
-/* BACKGROUND GLOBAL */
+/* BACKGROUND */
 body {
-  min-height: 100vh;
-
   background: url("the_wandering_village.jpg") no-repeat center center fixed;
   background-size: cover;
-
   color: #0f0f1a;
 }
 
-/* HEADER (transparent pour voir l’image) */
-header {
-  height: 100vh;
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 40px;
+
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+/* HEADER */
+header {
+  height: 70vh;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-
-  /* léger effet lisibilité */
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
 }
 
-/* SECTIONS -> IMPORTANT : PAS DE FOND SOLIDE */
-section {
-  padding: 80px 20px;
-  max-width: 1000px;
-  margin: auto;
-
-  background: transparent;
+/* Bloc header */
+.hero-content {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  padding: 30px 40px;
+  border-radius: 12px;
 }
 
-/* TITRES */
-h2 {
-  margin-bottom: 20px;
-  border-left: 4px solid #6c63ff;
-  padding-left: 10px;
+/* PHOTO DE PROFIL */
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
 
-  color: #000;
+  border-radius: 50%;
+  margin-bottom: 15px;
+
+  border: 3px solid white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* BUTTON */
@@ -58,6 +87,20 @@ h2 {
   border-radius: 8px;
 }
 
+/* SECTIONS */
+section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* TITRES */
+h2 {
+  margin-bottom: 20px;
+  border-left: 4px solid #6c63ff;
+  padding-left: 10px;
+}
+
 /* PROJECTS */
 .projects {
   display: grid;
@@ -65,12 +108,11 @@ h2 {
   gap: 20px;
 }
 
-/* CARDS semi-transparent (important) */
+/* CARD */
 .card {
   background: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 12px;
-  border: 1px solid #ddd;
 }
 
 /* VIDEO */
@@ -85,17 +127,6 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* LINK */
-.project-link {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: white;
-  background: #6c63ff;
-  padding: 8px 12px;
-  border-radius: 6px;
-}
-
 /* SKILLS */
 .skills {
   display: flex;
@@ -107,12 +138,9 @@ h2 {
   background: rgba(255, 255, 255, 0.8);
   padding: 10px 15px;
   border-radius: 6px;
-  border: 1px solid #ddd;
 }
 
-/* FOOTER transparent aussi */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.3);
+/* OFFSET NAVBAR */
+body {
+  padding-top: 70px;
 }
