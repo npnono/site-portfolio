@@ -6,13 +6,10 @@
   font-family: Arial, sans-serif;
 }
 
-/* BODY + BACKGROUND */
+/* BACKGROUND */
 body {
-  background-image: url("the_wandering_village.jpg");
+  background: url("the_wandering_village.jpg") no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-
   color: #0f0f1a;
   padding-top: 70px;
 }
@@ -62,11 +59,12 @@ header {
 /* HERO */
 .hero-content {
   background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
   padding: 30px;
   border-radius: 12px;
 }
 
-/* PHOTO PROFIL */
+/* PROFILE PIC */
 .profile-pic {
   width: 120px;
   height: 120px;
@@ -151,20 +149,24 @@ h2 {
   text-align: center;
 }
 
-/* FOOTER */
+/* FOOTER FLOTTANT CENTRÉ */
 footer {
-  width: 100%;
-  padding: 15px;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 
-  display: flex;
-  justify-content: center;
+  padding: 15px 40px;
 
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
 
-  margin-top: 40px;
+  border-radius: 12px;
+
+  z-index: 1000;
 }
 
 .footer-text {
   font-size: 14px;
+  font-weight: 500;
 }
