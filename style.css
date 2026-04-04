@@ -1,3 +1,5 @@
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +12,7 @@ body {
   background: url("the_wandering_village.jpg") no-repeat center center fixed;
   background-size: cover;
   color: #0f0f1a;
+  padding-top: 70px; /* espace navbar */
 }
 
 /* NAVBAR */
@@ -44,6 +47,11 @@ body {
   text-decoration: none;
   color: black;
   font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: #6c63ff;
 }
 
 /* HEADER */
@@ -55,15 +63,15 @@ header {
   text-align: center;
 }
 
-/* Bloc header */
+/* HERO */
 .hero-content {
   background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
   padding: 30px 40px;
   border-radius: 12px;
 }
 
-/* PHOTO DE PROFIL */
+/* PHOTO PROFIL */
 .profile-pic {
   width: 120px;
   height: 120px;
@@ -85,6 +93,11 @@ header {
   color: white;
   cursor: pointer;
   border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 /* SECTIONS */
@@ -113,6 +126,12 @@ h2 {
   background: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 12px;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 /* VIDEO */
@@ -125,6 +144,7 @@ h2 {
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
+  color: #555;
 }
 
 /* SKILLS */
@@ -138,9 +158,26 @@ h2 {
   background: rgba(255, 255, 255, 0.8);
   padding: 10px 15px;
   border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: 0.2s;
 }
 
-/* OFFSET NAVBAR */
-body {
-  padding-top: 70px;
+.skill:hover {
+  transform: scale(1.05);
+}
+
+/* PROFIL */
+#profil .card {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* FOOTER (si tu en ajoutes un plus tard) */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.4);
 }
