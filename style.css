@@ -6,10 +6,15 @@
   font-family: Arial, sans-serif;
 }
 
-/* BACKGROUND */
+/* BODY + BACKGROUND */
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   background: url("the_wandering_village.jpg") no-repeat center center fixed;
   background-size: cover;
+
   color: #0f0f1a;
   padding-top: 70px;
 }
@@ -149,21 +154,17 @@ h2 {
   text-align: center;
 }
 
-/* FOOTER FLOTTANT CENTRÉ */
+/* FOOTER NORMAL EN BAS */
 footer {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: auto;
+  width: 100%;
+  padding: 15px;
 
-  padding: 15px 40px;
+  display: flex;
+  justify-content: center;
 
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
-
-  border-radius: 12px;
-
-  z-index: 1000;
 }
 
 .footer-text {
