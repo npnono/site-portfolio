@@ -1,20 +1,5 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
 
-/* BACKGROUND */
-body {
-  background: url("the_wandering_village.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #0f0f1a;
-  padding-top: 70px;
-}
-
-/* NAVBAR */
+/* NAVBAR centrée maintenant */
 .navbar {
   position: fixed;
   top: 0;
@@ -22,7 +7,7 @@ body {
   padding: 15px 40px;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   background: rgba(255, 255, 255, 0.7);
@@ -31,147 +16,18 @@ body {
   z-index: 1000;
 }
 
-.logo {
-  font-size: 14px;
-  font-weight: 500;
-  opacity: 0.8;
-}
-
-/* NAV LINKS */
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  transition: 0.2s;
-}
-
-.nav-links a:hover {
-  color: #6c63ff;
-}
-
-/* HEADER */
-header {
-  height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* HERO */
-.hero-content {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(6px);
-  padding: 30px 40px;
-  border-radius: 12px;
-}
-
-/* PROFILE PIC */
-.profile-pic {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-
-  border-radius: 50%;
-  margin-bottom: 15px;
-
-  border: 3px solid white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* BUTTON */
-.btn {
-  margin-top: 20px;
-  padding: 12px 25px;
-  border: none;
-  background: linear-gradient(45deg, #6c63ff, #8f87ff);
-  color: white;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
-/* SECTIONS */
-section {
-  padding: 80px 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* TITLES */
-h2 {
-  margin-bottom: 20px;
-  border-left: 4px solid #6c63ff;
-  padding-left: 10px;
-}
-
-/* PROJECTS */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-/* CARDS */
-.card {
-  background: rgba(255, 255, 255, 0.85);
+/* FOOTER */
+footer {
+  margin-top: 60px;
   padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  transition: 0.3s;
-}
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* VIDEO */
-.video-placeholder {
-  width: 100%;
-  height: 180px;
-  background: #ddd;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 15px;
-  color: #555;
-}
-
-/* SKILLS */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.skill {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 10px 15px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  transition: 0.2s;
-}
-
-.skill:hover {
-  transform: scale(1.05);
-}
-
-/* PROFIL */
-#profil .card {
-  max-width: 600px;
-  margin: auto;
   text-align: center;
-  font-size: 18px;
-  line-height: 1.8;
+
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+.footer-text {
+  font-size: 14px;
+  opacity: 0.8;
 }
