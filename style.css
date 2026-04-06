@@ -6,6 +6,11 @@
   font-family: Arial, sans-serif;
 }
 
+/* SCROLL FLUIDE */
+html {
+  scroll-behavior: smooth;
+}
+
 /* BODY */
 body {
   background: url("the_wandering_village.jpg") no-repeat center center fixed;
@@ -36,12 +41,16 @@ body {
   gap: 20px;
 }
 
-/* PAS D’EFFET LIEN */
+/* ✅ LIENS ACTIFS */
 .nav-links a {
   text-decoration: none;
   color: black;
-  pointer-events: none;
-  cursor: default;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: #6c63ff; /* petit effet au survol */
 }
 
 /* HEADER */
@@ -60,11 +69,11 @@ header {
   border-radius: 12px;
 }
 
-/* 🔥 PHOTO AVEC COINS ARRONDIS */
+/* PHOTO */
 .profile-pic {
   width: 120px;
   height: auto;
-  border-radius: 15px; /* coins arrondis */
+  border-radius: 15px;
   margin-bottom: 15px;
   object-fit: cover;
 }
@@ -80,7 +89,7 @@ header {
   cursor: pointer;
 }
 
-/* SECTIONS CENTRÉES */
+/* SECTIONS */
 section {
   padding: 60px 20px;
   max-width: 1000px;
