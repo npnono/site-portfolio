@@ -20,7 +20,7 @@ body {
   background-attachment: fixed;
 
   color: #0f0f1a;
-  padding-top: 70px;
+  padding-top: 60px;
 }
 
 /* NAVBAR */
@@ -29,11 +29,12 @@ body {
   top: 0;
   width: 100%;
   height: 60px;
-  padding: 0 20px;
 
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  padding: 0 20px;
 
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
@@ -61,7 +62,7 @@ body {
 /* HAMBURGER */
 .menu-toggle {
   display: none;
-  font-size: 28px;
+  font-size: 26px;
   cursor: pointer;
 }
 
@@ -76,15 +77,15 @@ header {
 .hero-content {
   text-align: center;
   background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 15px;
 }
 
 /* IMAGE */
 .profile-pic {
-  width: 120px;
-  border-radius: 15px;
+  width: 140px;
+  border-radius: 20px;
   margin-bottom: 15px;
 }
 
@@ -97,6 +98,11 @@ header {
   color: #fff;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #5548d9;
 }
 
 /* SECTIONS */
@@ -162,39 +168,31 @@ footer {
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
-  /* NAVBAR garde structure */
-  .navbar {
-    justify-content: flex-end;
-  }
-
-  /* bouton burger DANS la navbar */
   .menu-toggle {
     display: block;
   }
 
-  /* cacher menu desktop */
   .nav-links {
     position: absolute;
-    top: 60px; /* juste sous la navbar */
+    top: 60px; /* parfaitement sous la navbar */
     right: 20px;
 
     background: #fff;
     flex-direction: column;
     width: 180px;
     padding: 15px;
-    display: none;
 
+    display: none;
     gap: 10px;
+
     border-radius: 10px;
     z-index: 2000;
   }
 
-  /* menu visible */
   .nav-links.active {
     display: flex;
   }
 
-  /* projets en colonne */
   .projects {
     grid-template-columns: 1fr;
   }
