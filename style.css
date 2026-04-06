@@ -60,12 +60,13 @@ header {
   border-radius: 12px;
 }
 
-/* PHOTO */
+/* 🔥 PHOTO (CORRIGÉE NON ARRONDIE) */
 .profile-pic {
   width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  height: auto;
+  border-radius: 0;     /* ❌ plus de rond */
   margin-bottom: 15px;
+  object-fit: cover;
 }
 
 /* BUTTON */
@@ -79,7 +80,7 @@ header {
   cursor: pointer;
 }
 
-/* SECTIONS CENTRÉES AVEC MARGES */
+/* SECTIONS CENTRÉES */
 section {
   padding: 60px 20px;
   max-width: 1000px;
@@ -93,11 +94,20 @@ h2 {
   padding-left: 10px;
 }
 
-/* 🔥 PROFIL ALIGNÉ À GAUCHE */
+/* CARD */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+/* PROFIL */
 #profil .card {
   max-width: 600px;
-  margin-top: 15px;   /* espace sous titre */
+  margin-top: 15px;
   text-align: left;
+  line-height: 1.6;
 }
 
 /* PROJETS */
@@ -105,14 +115,6 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-}
-
-/* CARD */
-.card {
-  background: rgba(255, 255, 255, 0.85);
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
 }
 
 /* VIDEO */
