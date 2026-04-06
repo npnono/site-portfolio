@@ -7,21 +7,26 @@
     <link rel="stylesheet" href="style.css"> 
   </head>
   <body>
+
     <!-- NAVBAR -->
     <nav class="navbar"> 
-      <ul class="nav-links"> 
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <ul class="nav-links" id="navLinks"> 
         <li><a href="#">Accueil</a></li>
         <li><a href="#profil">Profil</a></li>
         <li><a href="#projects">Projets</a></li>
         <li><a href="#skills">Compétences</a></li> 
         <li><a href="#loisirs">Loisirs</a></li> 
-      </ul> </nav> 
+      </ul>
+    </nav> 
+
     <!-- HEADER --> 
     <header> <div class="hero-content">
       <img src="Pestre Nolan.jpg" alt="Photo de profil" class="profile-pic"> 
       <h1>Nolan Pestre</h1> <p>Game Developer Student 🎮</p>
       <button class="btn" onclick="scrollToSection('projects')"> Voir mes projets </button>
     </div> </header> 
+
     <!-- PROFIL -->
     <section id="profil">
       <h2>Profil</h2>
@@ -31,6 +36,7 @@
           <br> Je recherche un stage de 3 mois minimum à partir du 11 mai. </p>
       </div>
     </section> 
+
     <!-- PROJETS -->
     <section id="projects"> 
       <h2>Projets</h2> 
@@ -38,7 +44,8 @@
         <div class="card"> 
           <div class="video-placeholder">Vidéo du projet ici</div>
           <h3>FPS Prototype</h3>
-        </div> <div class="card">
+        </div> 
+        <div class="card">
           <div class="video-placeholder">Vidéo du projet ici</div> 
           <h3>Jeu 2D</h3> 
         </div>
@@ -48,6 +55,7 @@
         </div> 
       </div> 
     </section>
+
     <!-- COMPETENCES -->
     <section id="skills">
       <h2>Compétences</h2>
@@ -59,6 +67,7 @@
         <div class="skill">Python</div> 
       </div> 
     </section> 
+
     <!-- LOISIRS -->
     <section id="loisirs">
       <h2>Loisirs</h2> 
@@ -71,10 +80,12 @@
         <div class="skill">Escalade</div>
       </div>
     </section>
+
     <!-- FOOTER --> 
     <footer> 
       <div class="footer-text"> © 2026 Nolan Pestre | Game Developer 🎮 </div>
     </footer> 
+
     <script src="script.js"></script>
   </body> 
 </html>
