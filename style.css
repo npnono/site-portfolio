@@ -79,11 +79,11 @@ header {
   cursor: pointer;
 }
 
-/* ✅ CONTENU CENTRÉ AVEC MARGES */
+/* SECTIONS CENTRÉES AVEC MARGES */
 section {
   padding: 60px 20px;
-  max-width: 1000px;   /* largeur max */
-  margin: 0 auto;      /* centre horizontalement */
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* TITRES */
@@ -91,6 +91,13 @@ h2 {
   margin-bottom: 20px;
   border-left: 4px solid #6c63ff;
   padding-left: 10px;
+}
+
+/* 🔥 PROFIL ALIGNÉ À GAUCHE */
+#profil .card {
+  max-width: 600px;
+  margin-top: 15px;   /* espace sous titre */
+  text-align: left;
 }
 
 /* PROJETS */
@@ -106,7 +113,6 @@ h2 {
   padding: 20px;
   border-radius: 10px;
   border: 1px solid #ddd;
-  text-align: center;
 }
 
 /* VIDEO */
@@ -133,12 +139,6 @@ h2 {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ddd;
-}
-
-/* PROFIL */
-#profil .card {
-  max-width: 600px;
-  margin: auto;
 }
 
 /* FOOTER */
