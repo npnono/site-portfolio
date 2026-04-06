@@ -19,7 +19,7 @@ body {
   padding-top: 70px;
 }
 
-/* NAVBAR (A DROITE) */
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
@@ -28,6 +28,7 @@ body {
 
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
@@ -41,7 +42,7 @@ body {
   gap: 20px;
 }
 
-/* ✅ LIENS ACTIFS */
+/* LIENS */
 .nav-links a {
   text-decoration: none;
   color: black;
@@ -50,7 +51,14 @@ body {
 }
 
 .nav-links a:hover {
-  color: #6c63ff; /* petit effet au survol */
+  color: #6c63ff;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
 }
 
 /* HEADER */
@@ -87,6 +95,11 @@ header {
   color: white;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #5548d9;
 }
 
 /* SECTIONS */
@@ -109,6 +122,11 @@ h2 {
   padding: 20px;
   border-radius: 10px;
   border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 /* PROFIL */
@@ -150,6 +168,12 @@ h2 {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+.skill:hover {
+  background: #6c63ff;
+  color: white;
 }
 
 /* FOOTER */
@@ -168,4 +192,38 @@ footer {
 
 .footer-text {
   font-size: 14px;
+}
+
+/* ===================== */
+/* RESPONSIVE MOBILE */
+/* ===================== */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    display: none;
+    gap: 15px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
 }
