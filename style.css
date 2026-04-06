@@ -6,7 +6,7 @@
   font-family: Arial, sans-serif;
 }
 
-/* SCROLL FLUIDE */
+/* SCROLL */
 html {
   scroll-behavior: smooth;
 }
@@ -27,7 +27,7 @@ body {
   padding: 15px;
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 
   background: rgba(255, 255, 255, 0.7);
@@ -42,11 +42,9 @@ body {
   gap: 20px;
 }
 
-/* LIENS */
 .nav-links a {
   text-decoration: none;
   color: black;
-  cursor: pointer;
   transition: 0.2s;
 }
 
@@ -77,13 +75,10 @@ header {
   border-radius: 12px;
 }
 
-/* PHOTO */
 .profile-pic {
   width: 120px;
-  height: auto;
   border-radius: 15px;
   margin-bottom: 15px;
-  object-fit: cover;
 }
 
 /* BUTTON */
@@ -95,21 +90,15 @@ header {
   color: white;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #5548d9;
 }
 
 /* SECTIONS */
 section {
   padding: 60px 20px;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: auto;
 }
 
-/* TITRES */
 h2 {
   margin-bottom: 20px;
   border-left: 4px solid #6c63ff;
@@ -121,20 +110,6 @@ h2 {
   background: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #ddd;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* PROFIL */
-#profil .card {
-  max-width: 600px;
-  margin-top: 15px;
-  text-align: left;
-  line-height: 1.6;
 }
 
 /* PROJETS */
@@ -144,9 +119,7 @@ h2 {
   gap: 20px;
 }
 
-/* VIDEO */
 .video-placeholder {
-  width: 100%;
   height: 150px;
   background: #ddd;
   border-radius: 10px;
@@ -167,44 +140,21 @@ h2 {
   background: rgba(255, 255, 255, 0.8);
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #ddd;
-  transition: 0.3s;
-}
-
-.skill:hover {
-  background: #6c63ff;
-  color: white;
 }
 
 /* FOOTER */
 footer {
-  width: 100%;
   padding: 15px;
-
   display: flex;
   justify-content: center;
-
   background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(6px);
-
-  margin-top: 60px;
 }
 
-.footer-text {
-  font-size: 14px;
-}
-
-/* ===================== */
-/* RESPONSIVE MOBILE */
-/* ===================== */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
   .menu-toggle {
     display: block;
-  }
-
-  .navbar {
-    justify-content: space-between;
   }
 
   .nav-links {
@@ -217,6 +167,7 @@ footer {
     padding: 20px;
     display: none;
     gap: 15px;
+    z-index: 2000;
   }
 
   .nav-links.active {
