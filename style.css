@@ -36,11 +36,11 @@ body {
   gap: 20px;
 }
 
-/* ❌ SUPPRESSION STYLE LIEN */
+/* PAS D’EFFET LIEN */
 .nav-links a {
   text-decoration: none;
   color: black;
-  pointer-events: none; /* désactive clic */
+  pointer-events: none;
   cursor: default;
 }
 
@@ -79,11 +79,11 @@ header {
   cursor: pointer;
 }
 
-/* SECTIONS */
+/* ✅ CONTENU CENTRÉ AVEC MARGES */
 section {
   padding: 60px 20px;
-  max-width: 1000px;
-  margin: auto;
+  max-width: 1000px;   /* largeur max */
+  margin: 0 auto;      /* centre horizontalement */
 }
 
 /* TITRES */
