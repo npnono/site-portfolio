@@ -60,11 +60,11 @@ header {
   border-radius: 12px;
 }
 
-/* 🔥 PHOTO (CORRIGÉE NON ARRONDIE) */
+/* 🔥 PHOTO AVEC COINS ARRONDIS */
 .profile-pic {
   width: 120px;
   height: auto;
-  border-radius: 0;     /* ❌ plus de rond */
+  border-radius: 15px; /* coins arrondis */
   margin-bottom: 15px;
   object-fit: cover;
 }
