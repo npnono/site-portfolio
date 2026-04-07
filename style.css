@@ -18,10 +18,10 @@ body {
   background-attachment: fixed;
 
   color: #0f0f1a;
-  padding-top: 70px;
+  padding-top: 80px;
 }
 
-/* NAVBAR FIX */
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 10px;
@@ -30,7 +30,7 @@ body {
 
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: space-between;
 
   padding: 10px 20px;
 
@@ -45,10 +45,19 @@ body {
   z-index: 1000;
 }
 
+/* LOGO */
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* MENU */
 .nav-links {
   display: flex;
+  list-style: none;
   gap: 25px;
 }
+
 .nav-links a {
   text-decoration: none;
   color: #000;
@@ -116,6 +125,8 @@ h2 {
   background: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* PROJETS */
@@ -170,8 +181,8 @@ footer {
 
     background: white;
     flex-direction: column;
-    width: 180px;
-    padding: 15px;
+    width: 160px;
+    padding: 10px;
 
     display: none;
     gap: 10px;
@@ -185,5 +196,10 @@ footer {
 
   .projects {
     grid-template-columns: 1fr;
+  }
+
+  .card {
+    max-width: 90%;
+    padding: 15px;
   }
 }
