@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Nolan Pestre</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,48 +13,112 @@
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-logo">NP</div>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#">Accueil</a></li>
       <li><a href="#profil">Profil</a></li>
-      <li><a href="#exp">Expériences</a></li>
       <li><a href="#projects">Projets</a></li>
       <li><a href="#skills">Compétences</a></li>
       <li><a href="#loisirs">Loisirs</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
   </nav>
 
-  <!-- HERO -->
-  <header id="hero">
+  <!-- HEADER -->
+  <header>
     <div class="hero-content">
-      <img src="Pestre Nolan.jpg" alt="Nolan Pestre" class="profile-pic">
+
+      <img src="Pestre Nolan.jpg" alt="Photo de Nolan Pestre" class="profile-pic">
+
       <h1>Nolan Pestre</h1>
-      <p class="hero-sub">Game Developer Student · Gaming Campus Lyon</p>
+      <p>Game Developer Student</p>
 
       <button class="btn" onclick="scrollToSection('projects')">
-        Voir mes projets →
+        Voir mes projets
       </button>
+
     </div>
   </header>
 
   <!-- PROFIL -->
   <section id="profil">
     <h2>Profil</h2>
+
     <div class="card">
-      <p>Étudiant de 21 ans en 3e année de Bachelor Développeur Informatique spécialisé en jeux vidéo au Gaming Campus de Lyon.</p>
+      <p>
+        Étudiant de 21 ans en troisième année de Bachelor Développeur Informatique, spécialisé en jeux vidéo au Gaming Campus de Lyon, je suis actuellement à la recherche d’un stage de 3 mois minimum à partir du 11 mai.
+      </p>
+
+      <p>
+        Au cours de mes expériences, j’ai eu l’opportunité de travailler chez Enedis, où j’ai développé un transpileur entre Jenkins et GitHub, ainsi que chez BIM Finance, sur la conception d’un market maker.
+      </p>
+
+      <p>
+        Curieux, adaptable et à l’aise en équipe, j’aime m’impliquer dans les projets et apprendre en continu afin de progresser rapidement.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projects">
+    <h2>Projets</h2>
+
+    <div class="projects">
+
+      <div class="card">
+        <div class="video-placeholder">Vidéo du projet ici</div>
+        <h3>FPS Prototype</h3>
+      </div>
+
+      <div class="card">
+        <div class="video-placeholder">Vidéo du projet ici</div>
+        <h3>Jeu 2D</h3>
+      </div>
+
+      <div class="card">
+        <div class="video-placeholder">Vidéo du projet ici</div>
+        <h3>AI Demo</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPETENCES -->
+  <section id="skills">
+    <h2>Compétences</h2>
+
+    <div class="skills">
+      <div class="skill">C#</div>
+      <div class="skill">C++</div>
+      <div class="skill">Unity</div>
+      <div class="skill">Unreal Engine</div>
+      <div class="skill">Python</div>
+    </div>
+  </section>
+
+  <!-- LOISIRS -->
+  <section id="loisirs">
+    <h2>Loisirs</h2>
+
+    <div class="skills">
+      <div class="skill">Sports collectifs</div>
+      <div class="skill">Musculation</div>
+      <div class="skill">Pêche</div>
+      <div class="skill">Lecture de mangas</div>
+      <div class="skill">Jeux vidéo</div>
+      <div class="skill">Escalade</div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Nolan Pestre</p>
+    <div class="footer-text">
+      © 2026 Nolan Pestre | Game Developer
+    </div>
   </footer>
 
-  <!-- SCRIPT (CORRIGÉ) -->
   <script src="script.js"></script>
 
 </body>
