@@ -3,27 +3,40 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* SCROLL */
+html {
+  scroll-behavior: smooth;
 }
 
 /* BODY */
 body {
-  font-family: Arial, sans-serif;
-  padding-top: 64px;
+  background-image: url("the_wandering_village.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  color: #0f0f1a;
+  padding-top: 60px;
 }
 
 /* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
-  left: 0; /* 🔥 FIX important */
   width: 100%;
+  height: 60px;
 
-  height: 64px;
   display: flex;
-  align-items: center;
+  align-items: right;
+
   padding: 0 20px;
 
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.7);
+
   z-index: 1000;
 }
 
@@ -32,14 +45,121 @@ body {
   display: flex;
   list-style: none;
   gap: 20px;
+
   margin-left: auto;
 }
 
-/* MOBILE */
-.menu-toggle {
-  display: none;
+/* LIENS */
+.nav-links a {
+  text-decoration: none;
+  color: #000;
 }
 
+.nav-links a:hover {
+  color: #6c63ff;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* HEADER */
+header {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 30px;
+  border-radius: 15px;
+}
+
+/* IMAGE */
+.profile-pic {
+  width: 140px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+/* BUTTON */
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  background: #6c63ff;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* TITRES */
+h2 {
+  margin-bottom: 20px;
+  border-left: 4px solid #6c63ff;
+  padding-left: 10px;
+}
+
+/* CARD */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* PROJETS */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* VIDEO */
+.video-placeholder {
+  height: 150px;
+  background: #ddd;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* SKILLS */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* FOOTER */
+footer {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
   .menu-toggle {
@@ -48,19 +168,26 @@ body {
   }
 
   .nav-links {
-    display: none;
     position: absolute;
-    top: 64px;
-    right: 10px; /* 🔥 FIX débordement */
+    top: 60px;
+    right: 20px;
 
     background: white;
     flex-direction: column;
     width: 180px;
-    padding: 10px;
+    padding: 15px;
+
+    display: none;
+    gap: 10px;
+
     border-radius: 10px;
   }
 
   .nav-links.active {
     display: flex;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
   }
 }
