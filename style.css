@@ -37,29 +37,23 @@ body {
 }
 
 /* =====================
-   NAVBAR FIXED FULL WIDTH
+   NAVBAR
    ===================== */
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%; /* 🔥 pleine largeur */
-
+  width: 100%;
   height: 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  padding: 0 20px;
-
+  padding: 0 24px;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
-
   border-bottom: 1px solid var(--border);
   z-index: 1000;
+  gap: 16px;
 }
 
-/* LOGO */
 .nav-logo {
   font-size: 16px;
   font-weight: bold;
@@ -71,9 +65,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-/* MENU */
 .nav-links {
   display: flex;
   list-style: none;
@@ -86,17 +80,18 @@ body {
   font-size: 13px;
   font-weight: 500;
   color: var(--text-muted);
+  transition: color 0.2s;
 }
 
 .nav-links a:hover {
   color: var(--accent);
 }
 
-/* BURGER */
 .menu-toggle {
   display: none;
   font-size: 24px;
   cursor: pointer;
+  margin-left: auto;
 }
 
 /* =====================
@@ -108,11 +103,28 @@ header {
   justify-content: center;
   align-items: center;
   padding: 60px 20px;
+  background: linear-gradient(160deg, #ede9ff 0%, #e0f0ff 100%);
+  border-bottom: 1px solid var(--border);
 }
 
 .hero-content {
   text-align: center;
   max-width: 600px;
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  border: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--accent-dark);
+  margin: 0 auto 20px;
 }
 
 .profile-pic {
@@ -125,12 +137,27 @@ header {
   display: block;
 }
 
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.contact-detail {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
 .hero-content h1 {
   font-size: 32px;
+  font-weight: bold;
   margin-bottom: 8px;
 }
 
 .hero-sub {
+  font-size: 16px;
   color: var(--text-muted);
   margin-bottom: 20px;
 }
@@ -149,17 +176,28 @@ header {
   border-radius: 20px;
   background: rgba(108, 99, 255, 0.12);
   color: var(--accent-dark);
+  font-weight: 500;
 }
 
 /* =====================
    BUTTON
    ===================== */
 .btn {
+  display: inline-block;
   padding: 12px 28px;
   background: var(--accent);
   color: #fff;
+  border: none;
   border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
 }
 
 /* =====================
@@ -171,8 +209,20 @@ section {
   margin: 0 auto;
 }
 
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
 h2 {
+  font-size: 24px;
+  font-weight: bold;
   margin-bottom: 24px;
+  color: var(--text);
 }
 
 /* =====================
@@ -185,31 +235,21 @@ h2 {
   padding: 24px;
 }
 
-/* =====================
-   PROJECTS
-   ===================== */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.card p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 12px;
 }
 
-.proj-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
-.proj-thumb {
-  height: 150px;
+.card p:last-child {
+  margin-bottom: 0;
 }
 
 /* =====================
-   MOBILE FIX
+   MOBILE
    ===================== */
 @media (max-width: 768px) {
-
   .menu-toggle {
     display: block;
   }
@@ -218,25 +258,18 @@ h2 {
     display: none;
     position: absolute;
     top: 64px;
-    right: 10px; /* 🔥 ne sort plus de l'écran */
-
+    right: 16px;
     background: white;
     flex-direction: column;
-    width: 180px;
-    max-width: 90vw; /* 🔥 sécurité */
-
-    padding: 12px;
-    gap: 10px;
-
-    border-radius: 10px;
+    width: 200px;
+    padding: 16px;
+    gap: 12px;
+    border-radius: var(--radius-lg);
     border: 1px solid var(--border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   }
 
   .nav-links.active {
     display: flex;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
   }
 }
