@@ -1,189 +1,147 @@
-<!DOCTYPE html> 
-<html lang="fr"> 
-  <head>
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Portfolio - Nolan Pestre</title> 
-    <link rel="stylesheet" href="style.css"> 
-  </head> 
-  <body> 
-    <!-- NAVBAR --> 
-    <nav class="navbar"> 
-      <div class="nav-logo">NP</div> 
-      <ul class="nav-links" id="navLinks"> 
-        <li><a href="#hero">Accueil</a></li> 
-        <li><a href="#profil">Profil</a></li> 
-        <li><a href="#exp">Expériences</a></li> 
-        <li><a href="#projects">Projets</a></li> 
-        <li><a href="#skills">Compétences</a></li> 
-        <li><a href="#loisirs">Loisirs</a></li> 
-        <li><a href="#contact">Contact</a></li> 
-      </ul> <div class="menu-toggle" onclick="toggleMenu()">☰</div> 
-    </nav> 
-    <!-- HERO -->
-    <header id="hero"> 
-      <div class="hero-content"> 
-        <img src="Pestre Nolan.jpg" alt="Nolan Pestre" class="profile-pic"> 
-        <h1>Nolan Pestre</h1> 
-        <p class="hero-sub">Game Developer Student · Gaming Campus Lyon</p> 
-        <div class="hero-tags"> 
-          <span class="tag">C# / C++</span> 
-          <span class="tag">Unity · Unreal Engine</span>
-          <span class="tag">Stage dès mai 2026</span>
-        </div> 
-        <button class="btn" onclick="scrollToSection('projects')">Voir mes projets →</button> 
-      </div>
-    </header> 
-    <!-- PROFIL --> 
-    <section id="profil"> 
-      <h2>Profil</h2> <div class="card">
-        <p>Étudiant de 21 ans en 3e année de Bachelor Développeur Informatique spécialisé en jeux vidéo au Gaming Campus de Lyon, je recherche un stage de minimum 3 mois à partir du 11 mai.</p>
-        <p>Curieux, adaptable et à l'aise en équipe, j'aime m'impliquer dans les projets et apprendre en continu afin de progresser rapidement.</p>
-        <div class="highlights"> 
-          <div class="highlight"> 
-            <span class="h-label">Disponibilité</span>
-            <span class="h-val">Dès le 11 mai</span> 
-          </div>
-          <div class="highlight"> 
-            <span class="h-label">Durée minimale</span>
-            <span class="h-val">3 mois</span> 
-          </div> 
-          <div class="highlight">
-            <span class="h-label">Localisation</span> 
-            <span class="h-val">Lyon, France</span> 
-          </div> <div class="highlight"> 
-            <span class="h-label">Formation</span>
-            <span class="h-val">Bachelor 3e année</span>
-          </div> 
-        </div> 
-      </div> 
-    </section>
-    <!-- EXPÉRIENCES -->
-    <section id="exp">
-      <h2>Expériences</h2> 
-      <div class="exp-list"> 
-        <div class="exp-item"> 
-          <div class="exp-content"> 
-            <h3>Enedis — Développeur</h3>
-            <p class="exp-meta">Stage · Lyon</p>
-            <p class="exp-desc">Développement d'un transpileur entre Jenkins et GitHub pour automatiser les pipelines CI/CD.</p>
-          </div>
-        </div> 
-        <div class="exp-item">
-          <div class="exp-content">
-            <h3>BIM Finance — Développeur</h3> 
-            <p class="exp-meta">Stage · Lyon</p> 
-            <p class="exp-desc">Conception d'un market maker : modélisation algorithmique et implémentation de la logique de cotation.</p>
-          </div> 
-        </div> 
-      </div> 
-    </section> 
-    <!-- PROJETS -->
-    <section id="projects">
-      <h2>Projets</h2> 
-      <div class="projects-grid">
-        <div class="proj-card">
-          <div class="proj-thumb fps"> 
-            <!-- Remplace par une vraie vidéo : <video src="fps.mp4" controls></video> --> 
-            <span class="video-badge">Vidéo à venir</span>
-          </div> <div class="proj-body">
-            <h3>FPS Prototype</h3> 
-            <p>Prototype de jeu de tir à la première personne avec mécanique de déplacement avancée.</p> 
-            <div class="proj-tags"> 
-              <span class="proj-tag">Unreal Engine</span>
-              <span class="proj-tag">C++</span> 
-            </div> 
-          </div> 
-        </div> 
-        <div class="proj-card"> 
-          <div class="proj-thumb jeu2d">
-            <span class="video-badge">Vidéo à venir</span>
-          </div> 
-          <div class="proj-body"> 
-            <h3>Jeu 2D</h3> 
-            <p>Jeu de plateforme 2D avec système de physique et animations procédurales.</p>
-            <div class="proj-tags">
-              <span class="proj-tag">Unity</span>
-              <span class="proj-tag">C#</span>
-            </div> </div> </div> <div class="proj-card"> 
-              <div class="proj-thumb ai">
-                <span class="video-badge">Vidéo à venir</span> 
-              </div> 
-              <div class="proj-body"> 
-                <h3>AI Demo</h3> 
-                <p>Démonstration d'intelligence artificielle appliquée au comportement de personnages non-joueurs.</p>
-                <div class="proj-tags">
-                  <span class="proj-tag">Python</span> 
-                  <span class="proj-tag">Unity</span> 
-                </div>
-              </div> 
-            </div> 
-      </div> 
-    </section> 
-    <!-- COMPÉTENCES --> 
-    <section id="skills"> 
-      <h2>Compétences</h2>
-      <div class="skills-grid">
-        <div class="skill-item"> 
-          <span class="skill-name">C#</span>
-          <span class="skill-level">Avancé</span> 
-          <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div>
-          </div> 
-        </div> 
-        <div class="skill-item"> 
-          <span class="skill-name">C++</span> 
-          <span class="skill-level">Intermédiaire</span>
-          <div class="skill-bar"><div class="skill-fill" style="width: 65%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Unity</span> <span class="skill-level">Avancé</span>
-          <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-        </div> 
-        <div class="skill-item">
-          <span class="skill-name">Unreal Engine</span>
-          <span class="skill-level">Intermédiaire</span>
-          <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Python</span> 
-          <span class="skill-level">Intermédiaire</span>
-          <div class="skill-bar"><div class="skill-fill" style="width: 70%"></div></div>
-        </div> 
-      </div> 
-    </section>
-    <!-- LOISIRS -->
-    <section id="loisirs"> 
-      <h2>Loisirs</h2> <div class="loisirs-grid">
-        <div class="loisir">Sports collectifs</div>
-        <div class="loisir">Musculation</div>
-        <div class="loisir">Pêche</div>
-        <div class="loisir">Mangas</div> 
-        <div class="loisir">Jeux vidéo</div> 
-        <div class="loisir">Escalade</div> 
-      </div> 
-    </section> 
-    <!-- CONTACT -->
-    <section id="contact"> 
-      <h2>Contact</h2> <div class="card contact-card">
-        <p>Je suis disponible pour un stage à partir du 11 mai 2026.<br>N'hésitez pas à me contacter pour discuter de vos projets.</p>
-        <div class="contact-info"> 
-          <div class="contact-detail">27 avenue Lacassagne, 69003 Lyon</div>
-          <div class="contact-detail">07 81 70 58 28</div> 
-          <div class="contact-detail">pestrenolan5@gmail.com</div>
-        </div> 
-        <div class="contact-links"> 
-          <a class="contact-btn" href="mailto:pestrenolan5@gmail.com">Email</a> 
-          <a class="contact-btn" href="https://www.linkedin.com/in/nolan-pestre-050b58293/" target="_blank">LinkedIn</a> 
-          <a class="contact-btn" href="https://github.com/NolanPestre" target="_blank">GitHub</a>
-        </div> 
-      </div> 
-    </section>
-    <!-- FOOTER --> 
-    <footer> 
-      <p>© 2026 Nolan Pestre · Game Developer Student · Gaming Campus Lyon</p>
-    </footer> 
-    <!-- SCRIPT -->
-  <script src="script.js"></script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Nolan Pestre</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">NP</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Accueil</a></li>
+    <li><a href="#profil">Profil</a></li>
+    <li><a href="#exp">Expériences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#loisirs">Loisirs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- HERO -->
+<header id="hero">
+  <div class="hero-content">
+    <img src="pestre-nolan.jpg" alt="Nolan Pestre" class="profile-pic">
+    <h1>Nolan Pestre</h1>
+    <p class="hero-sub">Game Developer Student · Gaming Campus Lyon</p>
+
+    <button class="btn" onclick="scrollToSection('projects')">
+      Voir mes projets
+    </button>
+  </div>
+</header>
+
+<!-- PROFIL -->
+<section id="profil">
+  <h2>Profil</h2>
+
+  <div class="card">
+    <p>
+      Étudiant de 21 ans en 3e année de Bachelor Développeur Informatique spécialisé en jeux vidéo au Gaming Campus de Lyon.
+      <br><br>
+      Je recherche un stage de minimum 3 mois à partir du 11 mai.
+    </p>
+  </div>
+</section>
+
+<!-- EXPÉRIENCES -->
+<section id="exp">
+  <h2>Expériences</h2>
+
+  <div class="card">
+    <div class="exp-item">
+      <h3>Enedis — Développeur</h3>
+      <p>Stage · Lyon</p>
+      <p>Migration CI/CD Jenkins → GitLab CI</p>
+    </div>
+
+    <div class="exp-item">
+      <h3>BIM Finance — Développeur</h3>
+      <p>Stage · Lyon</p>
+      <p>Développement d’un market maker</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projects">
+  <h2>Projets</h2>
+
+  <div class="card">
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-thumb">Vidéo</div>
+        <h3>FPS Prototype</h3>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-thumb">Vidéo</div>
+        <h3>Jeu 2D</h3>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-thumb">Vidéo</div>
+        <h3>AI Demo</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="skills">
+  <h2>Compétences</h2>
+
+  <div class="card">
+    <div class="skills-grid">
+      <p>C# - Avancé</p>
+      <p>C++ - Intermédiaire</p>
+      <p>Unity - Avancé</p>
+      <p>Unreal Engine - Intermédiaire</p>
+      <p>Python - Intermédiaire</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOISIRS -->
+<section id="loisirs">
+  <h2>Loisirs</h2>
+
+  <div class="card">
+    <div class="loisirs-grid">
+      <div>Sports collectifs</div>
+      <div>Musculation</div>
+      <div>Pêche</div>
+      <div>Mangas</div>
+      <div>Jeux vidéo</div>
+      <div>Escalade</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+
+  <div class="card">
+    <p>Email : pestrenolan5@gmail.com</p>
+    <p>Téléphone : 07 81 70 58 28</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Nolan Pestre</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
