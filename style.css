@@ -6,18 +6,27 @@
   font-family: Arial, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* BODY */
 body {
-  background: url("the_wandering_village.jpg") center/cover no-repeat fixed;
-  color: white;
+  background-image: url("the_wandering_village.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
   padding-top: 70px;
 }
 
-/* OVERLAY */
+/* OVERLAY POUR LISIBILITÉ */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.35);
   z-index: -1;
 }
 
@@ -27,114 +36,217 @@ body::before {
   top: 0;
   width: 100%;
   height: 70px;
-
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  z-index: 1000;
+}
 
-  padding: 0 20px;
-
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
+/* LOGO */
+.nav-logo {
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
 }
 
 /* MENU */
 .nav-links {
   display: flex;
-  gap: 20px;
   list-style: none;
+  gap: 25px;
 }
 
+/* LIENS */
 .nav-links a {
-  color: white;
   text-decoration: none;
+  color: #fff;
+  position: relative;
+  transition: 0.3s;
 }
 
-/* BURGER */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #6c63ff;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* HAMBURGER */
 .menu-toggle {
   display: none;
-  font-size: 25px;
+  font-size: 26px;
   cursor: pointer;
+  color: white;
 }
 
-/* HERO */
+/* HEADER */
 header {
-  height: 80vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .hero-content {
-  background: rgba(255,255,255,0.1);
-  padding: 30px;
-  border-radius: 15px;
   text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
 }
 
+/* IMAGE */
 .profile-pic {
-  width: 120px;
+  width: 150px;
   border-radius: 20px;
+  margin-bottom: 15px;
+  border: 3px solid rgba(255,255,255,0.3);
+}
+
+/* HERO TEXT */
+.hero-sub {
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+/* TAGS */
+.hero-tags {
+  margin: 15px 0;
+}
+
+.tag {
+  background: rgba(255,255,255,0.15);
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 12px;
 }
 
 /* BUTTON */
 .btn {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #6c63ff;
+  margin-top: 20px;
+  padding: 12px 25px;
   border: none;
-  color: white;
+  background: linear-gradient(45deg, #6c63ff, #8f7bff);
+  color: #fff;
   border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* SECTION */
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* SECTIONS */
 section {
-  padding: 60px 20px;
-  max-width: 1000px;
-  margin: auto;
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
+/* TITRES */
 h2 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  border-left: 4px solid #6c63ff;
+  padding-left: 10px;
 }
 
-/* CARD (🔥 IMPORTANT) */
+/* CARD */
 .card {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   padding: 20px;
   border-radius: 15px;
-  margin-top: 10px;
 }
 
 /* EXP */
 .exp-item {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 /* PROJETS */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 20px;
 }
 
 .proj-card {
   background: rgba(255,255,255,0.1);
-  padding: 15px;
-  border-radius: 10px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
 }
 
+.proj-card:hover {
+  transform: translateY(-5px);
+}
+
+/* THUMB */
 .proj-thumb {
-  height: 120px;
-  background: #333;
-  margin-bottom: 10px;
-  border-radius: 8px;
+  height: 150px;
+  background: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-badge {
+  background: rgba(0,0,0,0.6);
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+/* BODY */
+.proj-body {
+  padding: 15px;
+}
+
+.proj-tags {
+  margin-top: 10px;
+}
+
+.proj-tag {
+  background: rgba(255,255,255,0.2);
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: 12px;
 }
 
 /* SKILLS */
-.skills-grid p {
-  margin: 5px 0;
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.skill-bar {
+  background: rgba(255,255,255,0.2);
+  height: 6px;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.skill-fill {
+  height: 100%;
+  background: #6c63ff;
+  border-radius: 4px;
 }
 
 /* LOISIRS */
@@ -144,13 +256,35 @@ h2 {
   gap: 10px;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
+.loisir {
+  background: rgba(255,255,255,0.15);
+  padding: 8px 12px;
+  border-radius: 6px;
 }
 
-/* MOBILE */
+/* CONTACT */
+.contact-card {
+  margin-top: 20px;
+}
+
+.contact-btn {
+  display: inline-block;
+  margin: 10px 5px 0 0;
+  padding: 8px 15px;
+  background: #6c63ff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.3);
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
   .menu-toggle {
@@ -161,10 +295,12 @@ footer {
     position: absolute;
     top: 70px;
     right: 20px;
+    background: rgba(0,0,0,0.8);
     flex-direction: column;
-    background: black;
-    padding: 10px;
+    width: 200px;
+    padding: 15px;
     display: none;
+    border-radius: 10px;
   }
 
   .nav-links.active {
